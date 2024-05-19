@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="ikharipov" id="14052024_create_metrics_table">
+        <createTable tableName="metrics" schemaName="consumer">
+            <column name="id" type="uuid"/>
+            <column name="name" type="varchar"/>
+            <column name="description" type="varchar"/>
+            <column name="base_unit" type="varchar"/>
+            <column name="type" type="varchar(50)"/>
+            <column name="created" type="timestamp"/>
+            <column name="measurement" type="uuid"/>
+            <column name="tag" type="uuid"/>
+        </createTable>
+
+        <addPrimaryKey tableName="metrics" schemaName="consumer" columnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

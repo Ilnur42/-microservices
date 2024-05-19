@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <include file="changelog\14052024_create_metrics_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog\17052024_create_measurements_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog\17052024_create_tag_values_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog\17052024_create_tags_table.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="ikharipov" id="17052024_create_measurements_table">
+        <createTable tableName="measurements" schemaName="consumer">
+            <column name="id" type="uuid"/>
+            <column name="statistic" type="varchar"/>
+            <column name="value" type="double"/>
+            <column name="created" type="timestamp"/>
+            <column name="metric" type="uuid"/>
+        </createTable>
+
+        <addPrimaryKey tableName="measurements" schemaName="consumer" columnNames="id"/>
+
+        <addForeignKeyConstraint baseTableSchemaName="consumer"
+                                 baseColumnNames="metric"
+                                 baseTableName="measurements"
+                                 constraintName="fk_measurements_metric"
+                                 referencedTableSchemaName="consumer"
+                                 referencedColumnNames="id"
+                                 referencedTableName="metrics"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>
